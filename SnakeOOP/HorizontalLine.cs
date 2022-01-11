@@ -4,9 +4,9 @@ using System.Text;
 
 namespace SnakeOOP
 {
-    class HorizontalLine
+    class HorizontalLine : Figure 
     {
-        List<Point> pointList;
+        
 
         public HorizontalLine(int xLeft, int xRight, int y, char symb)
         {
@@ -20,14 +20,6 @@ namespace SnakeOOP
 
         }
 
-        public void Draw()
-        {
-            foreach(Point point in pointList)
-            {
-                Console.SetCursorPosition(point.x, point.y);
-                Console.Write(point.symb);
-            }
-
-        }
+        
     }
 }

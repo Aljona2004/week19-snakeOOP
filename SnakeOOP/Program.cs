@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading;
 
 namespace SnakeOOP
 {
@@ -11,9 +12,9 @@ namespace SnakeOOP
             Point p2 = new Point(11, 10, '*');
 
             HorizontalLine hline = new HorizontalLine(10, 14, 5, '*');
-            hline.Draw();
+            //hline.Draw();
             VerticalLine vLine = new VerticalLine(6, 16, 10, '@');
-            vLine.Draw();
+            //vLine.Draw();
 
             //drawing a game field frame
             HorizontalLine top = new HorizontalLine(0, 80, 0, '*');
@@ -24,7 +25,25 @@ namespace SnakeOOP
             bottom.Draw();
             VerticalLine right = new VerticalLine(0, 25, 80, '$');
             right.Draw();
+
+            Point snakeTail = new Point(15, 15, '*');
+            Snake snake = new Snake(snakeTail, 5, Direction.RIGHT);
+            snake.Draw();
             
+            while (true)
+            {
+                if (Console.KeyAvailable)
+                {
+                    ConsoleKeyInfo key = Console.ReadKey();
+                    snake.HendleKeys(key.Key);
+
+                }
+
+                Thread.Sleep(300);
+                snake.Move();
+            }
+
+
 
            Console.ReadLine();
         }

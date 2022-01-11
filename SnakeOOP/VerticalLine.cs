@@ -4,9 +4,9 @@ using System.Text;
 
 namespace SnakeOOP
 {
-    class VerticalLine
+    class VerticalLine : Figure 
     {
-        List<Point> pointList;
+       
 
         public VerticalLine(int yUp, int yDown, int x, char symb)
         {
@@ -18,12 +18,6 @@ namespace SnakeOOP
             }
         }
 
-        public void Draw()
-        {
-            foreach(Point point in pointList)
-            {
-                point.Draw();
-            }
-        }
+        
     }
 }
